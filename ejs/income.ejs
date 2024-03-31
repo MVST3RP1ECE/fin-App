@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+<body style="color: aliceblue;">
+    <div class="root">
+        <a href="index.ejs">main</a>
+        <a href="outcome.ejs">outcome</a>
+        <a href="invest.ejs">invest</a>
+        <h1>Income</h1>
+
+        <section class="forms">
+            <form action="/income" id="FormIncomes" method="post">
+                <!-- <input type="number" name="incomeCurrency" id="incCurrency"> -->
+                <%- include("partials/currency") %>
+                <%- include("partials/amount") %>
+                <%- include("partials/incomeCategory") %>
+                <%- include("partials/submit") %>
+            </form>
+        </section>
+
+        <table>
+            <thead>
+                <tr class="text-white">
+                    <th>id</th>
+                    <th>Валюта</th>
+                    <th>Количество</th>
+                    <th>Источник</th>
+                    <th>Дата</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- Сюда загружается контент с контроллера -->
+                    <th><%= income.id %></th>
+                    <th><%= income.currency %></th>
+                    <th><%= income.amount %></th>
+                    <th><%= income.source %></th>
+                    <th><%= income.date%></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

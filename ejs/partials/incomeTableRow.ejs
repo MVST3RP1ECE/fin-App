@@ -1,0 +1,12 @@
+<% if (income.length) { %>
+    <% income.forEach(({id, cuurency, amount, source, date}) => { %>
+        <tr>
+            <th><%= id %></th>
+            <th><%= currency %></th>
+            <th><%= amount %></th>
+            <th><%= source %></th>
+            <th><%= date%></th>
+        </tr>
+    <% }) %>
+<% } %>
+

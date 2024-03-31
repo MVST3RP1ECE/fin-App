@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+<body>
+    <div class="root">
+        <a href="index.ejs">main</a>
+        <a href="income.ejs">income</a>
+        <a href="outcome.ejs">outcome</a>
+        <h1>Invest</h1>
+
+       <section class="forms">
+            <form action="/income" id="FormIncomes" method="post">
+                <%- include("partials/currency")%>
+                <!-- <label for="incCurrency">Валюта</label>
+                <select name="incomeCurrency" id="incCurrency" required>
+                    <option value="">--Выберете валюту--</option>
+                    <optgroup label="CASH">
+                        <option value="rub">RUB</option>
+                        <option value="usd">USD</option>
+                        <option value="eur">EUR</option>
+                        <option value="yen">YEN</option>
+                        <option value="pnd">PND</option>
+                        <option value="frc">FRC</option>
+                    </optgroup>
+                    <optgroup label="CRYPT">
+                        <option value="btc">BTC</option>
+                        <option value="eth">ETH</option>
+                        <option value="teth">TETH</option>
+                    </optgroup>
+                </select> -->
+                <%-include("partials/amount")%>
+                <!-- <label for="incValue"> Количество</label>
+                <input type="number" name="incomeValue" id="incValue" required> -->
+                <%-include ("partials/investCategory")%>
+                <!-- <label for="incSource"> Источник</label>
+                <input type="text" name="incomeSource" id="incSource"> -->
+                <%-include("partials/submit")%>
+                <!-- <input type="submit"> -->
+            </form>
+        </section>
+
+        <table>
+            <thead>
+                <tr class="text-white">
+                    <th>id</th>
+                    <th>Валюта</th>
+                    <th>Количество</th>
+                    <th>Категория</th>
+                    <th>Дата</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- Сюда загружается контент с контроллера -->
+                    <th><%= new Date().toLocaleDateString() %></th>
+                    <th>Currency</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th> <%= new Date()%></th>
+                </tr>
+                
+
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>

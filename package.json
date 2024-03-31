@@ -1,0 +1,21 @@
+{
+  "name": "nodefinapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "model/server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.3",
+    "mysql": "^2.18.1"
+  }
+}
