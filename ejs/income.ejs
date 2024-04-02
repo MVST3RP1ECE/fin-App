@@ -30,12 +30,14 @@
             </thead>
             <tbody>
                 <tr>
-                    <!-- Сюда загружается контент с контроллера -->
-                    <th><%= income.id %></th>
-                    <th><%= income.currency %></th>
-                    <th><%= income.amount %></th>
-                    <th><%= income.source %></th>
-                    <th><%= income.date%></th>
+                    <% if (locals.income) { %>
+                        <!-- Сюда загружается контент с контроллера -->
+                        <th><%= income.id %></th>
+                        <th><%= income.currency %></th>
+                        <th><%= income.amount %></th>
+                        <th><%= income.source %></th>
+                        <th><%= income.date%></th>
+                    <% } %>
                 </tr>
             </tbody>
         </table>

@@ -7,7 +7,7 @@ const PORT = process.env.PORT ?? 3000;
 // const createPath = (page) => path.resolve("./ejs", `${page}.ejs`);
 
 // устанавливаем шаблонизатор ejs (terminal: npm i ejs). При ejs, метод send(sendFile) менятся на render
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 // app.set("ejs", path.resolve("./ejs"));
 
 
@@ -50,7 +50,7 @@ app.post("/income", (req,res)=>{
         amount: req.body.incomeValue,
         source: req.body.incomeType.toUpperCase(),
         date: new Date().toLocaleDateString(),
-    }
+    };
     console.log(title, income);
     res.render("../ejs/income", {title, income})
 })
