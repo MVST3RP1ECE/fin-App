@@ -3,6 +3,7 @@ import path from "path";
 import controller from "../controller/index.js";
 const app = express();
 const PORT = process.env.PORT ?? 3000;
+let incomeObjArray = [];
 // const ejsPage = path.resolve("../ejs");
 // const createPath = (page) => path.resolve("./ejs", `${page}.ejs`);
 
@@ -51,8 +52,9 @@ app.post("/income", (req,res)=>{
         source: req.body.incomeType.toUpperCase(),
         date: new Date().toLocaleDateString(),
     };
-    console.log(title, income);
-    res.render("../ejs/income", {title, income})
+    incomeObjArray.push(income);
+    console.log(title, income, incomeObjArray);
+    res.render("../ejs/income", {title, income, incomeObjArray})
 })
 
 app.get("/outcome.ejs", (req,res)=>{
