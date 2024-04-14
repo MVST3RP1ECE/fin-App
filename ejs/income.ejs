@@ -29,16 +29,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <% if (locals.income) { %>
-                        <!-- Сюда загружается контент с контроллера -->
-                        <th><%= income.id %></th>
-                        <th><%= income.currency %></th>
-                        <th><%= income.amount %></th>
-                        <th><%= income.source %></th>
-                        <th><%= income.date%></th>
-                    <% } %>
-                </tr>
+                <% if (locals.income) { %>
+                    <%- include("./partials/tableRowIncomeAdd.ejs") %>            
+                <% } %>
             </tbody>
         </table>
     </div>

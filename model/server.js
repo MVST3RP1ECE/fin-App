@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import controller from "../controller/index.js";
+import {fetchAllRows, incertIntoTableIncome} from "../model/dbModel.js"
 const app = express();
 const PORT = process.env.PORT ?? 3000;
 let incomeObjArray = [];
@@ -40,7 +41,7 @@ app.get("/income.ejs", (req,res)=>{
 })
 
 // app.post("/income", controller.dataLog)
-app.post("/income", (req,res)=>{
+app.post("/income", async (req,res)=>{
     // res.send(req.body);
     const title = "Income";
     // const {currency, amount, source} = req.body;
@@ -55,6 +56,14 @@ app.post("/income", (req,res)=>{
     incomeObjArray.push(income);
     console.log(title, income, incomeObjArray);
     res.render("../ejs/income", {title, income, incomeObjArray})
+    
+    const insertIncomeArr = await (async ()=>{
+        try {
+            await incertIntoTableIncome(path.resolve("./model/FinAppDB.db"), income.currency, income.amount, income.source, income.date, income.id)
+        } catch (error) {
+            console.log(error);
+        }
+    })();
 })
 
 app.get("/outcome.ejs", (req,res)=>{
@@ -75,6 +84,22 @@ app.get("/log.ejs", (req,res)=>{
     res.render("../ejs/log", {title});
 })
 
-app.listen(PORT, ()=>{
+app.listen(PORT, async ()=>{
     console.log(`Server has been started on PORT ${PORT}.`);
+    let arrDB = [];
+
+    const arr = await (async () => {
+        try {
+            const rows = await fetchAllRows(path.resolve("./model/FinAppDB.db"), "Category_list_inc");
+            console.log("Log on server ->", rows);
+            arrDB.push(rows);
+            return rows;
+        } catch (err) {
+            console.error(err.message);
+        }
+    })();
+
+    
+    // console.log(`Данные на сервере -> ${arr}`);
+    // console.log(arrDB[0]);
 })
