@@ -6,3 +6,20 @@
                         <th><%= income.source %></th>
                         <th><%= income.date%></th>
                     <% } %>
+
+
+
+
+
+
+
+---------------------------------
+
+<tr>
+                    <!-- Сюда загружается контент с контроллера -->
+                    <th><%= new Date().toLocaleDateString() %></th>
+                    <th>Currency</th>
+                    <th>Amount</th>
+                    <th>Source</th>
+                    <th> <%= new Date()%></th>
+                </tr>
