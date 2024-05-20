@@ -3,10 +3,14 @@
     <%- include("./partials/head.ejs") %>
 <body style="color: aliceblue;">
     <div class="root">
-        <a href="index.ejs">main</a>
-        <a href="outcome.ejs">outcome</a>
-        <a href="invest.ejs">invest</a>
-        <h1>Income</h1>
+        <!-- <nav class="links__wrapper d-flex"> -->
+            <p class="d-flex">Навигация: </p>
+            <a href="index.ejs">Главная</a>
+            <a href="outcome.ejs">Расходы</a>
+            <a href="invest.ejs">Инвестиции</a>
+        <!-- </nav> -->
+        
+        <h1>Доходы</h1>
 
         <section class="forms">
             <form action="/income" id="FormIncomes" method="post">

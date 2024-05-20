@@ -2,14 +2,16 @@
 <html lang="en">
     <%- include("./partials/head.ejs") %>
 <body>
-    <div class="root">
+    <p class="d-flex justify-content-center">FinApp - Приложение для учёта ваших финансов</p>
+    <div class="root d-flex align-items-center">
         <div class="wrapper">
-            <a href="log.ejs">logs</a>
-            <a href="income.ejs">income</a>
-            <a href="outcome.ejs">outcome</a>
-            <a href="invest.ejs">invest</a>
-            <h1>Категории</h1>
-            <h1>erwgoljkhvhrbjk;vhgujikb</h1>
+            <h1 class="pb-5">Категории</h1>
+            <!-- <a href="log.ejs">logs</a> -->
+            <div class="links__wrapper d-flex justify-content-around pt-5">
+                <a href="income.ejs">Доходы</a>
+                <a href="outcome.ejs">Расходы</a>
+                <a href="invest.ejs">Инвестиции</a>
+            </div>
         </div>
     </div>
 </body>

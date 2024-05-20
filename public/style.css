@@ -3,9 +3,23 @@
     padding: 0;
 }
 .root{
-    height: 100vh;
+    height: calc(100vh - 40px);
     box-sizing: border-box;
     background-color: #212121;
+}
+
+body{
+    background-color: #212121;
+    color: aliceblue;
+}
+
+a:hover{
+    border-bottom: 3px solid aliceblue;
+    color: aliceblue;
+    transition: ease 0.1s;
+}
+a:not(:hover){
+    transition: ease 0.1s;
 }
 .wrapper{
     position: relative;
